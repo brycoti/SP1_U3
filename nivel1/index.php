@@ -25,24 +25,28 @@ echo "<br><br><hr>";
 
 // ejercicio 3 
 echo "<h2>Ejercicio 3</h2>";
-function buscarCaracter($arrayPalabras, $caracter) {
-    foreach ($arrayPalabras as $palabra) {
-        if (strpos($palabra, $caracter) !== false) {
-            return true;
+
+$listaMenu = array("Hamburguesa", "Banana", "Agua", "Manzana", "Alitas de pollo");
+$listaJuegosPokemon = array("Negro", "Blanco", "Plata","Azul", "Verde", "Amarillo", "Rubi", "XD");
+
+print_r($listaMenu);
+var_dump(buscaCaracter($listaMenu,"A")); 
+echo  "<br><br>";
+print_r($listaJuegosPokemon);
+var_dump(buscaCaracter($listaJuegosPokemon,"x"));
+
+function buscaCaracter($palabras, $letra) {
+    $letra = strtolower($letra);
+    echo "Buscando si está la letra $letra en la lista: ";
+    foreach($palabras as $palabra) {
+        $palabra = strtolower($palabra);
+        if(strpos($palabra, $letra) === false) {
+            return  $resultado = false;
         }
     }
-    return false;
+    return $resultado = true;
 }
 
-$saludos = array('hola', 'buenos dias', 'ciao', 'adios', 'hello', 'hasta luego');
-
-print_r($saludos);
-
-$hayCaracter = buscarCaracter($saludos, "s");
-
-echo " Buscando si hay el carácter 's' como parametro: <br>";
-
-var_dump($hayCaracter);
 
 echo  "<br><br><hr>";
 
