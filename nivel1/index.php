@@ -26,27 +26,25 @@ echo "<br><br><hr>";
 // ejercicio 3 
 echo "<h2>Ejercicio 3</h2>";
 
-$listaMenu = array("Hamburguesa", "Banana", "Agua", "Manzana", "Alitas de pollo");
-$listaJuegosPokemon = array("Negro", "Blanco", "Plata","Azul", "Verde", "Amarillo", "Rubi", "XD");
+function comprobarCaracter($listaPalabras, $letra) {
+    $resultado = true;
+    $continuar = true;
 
-print_r($listaMenu);
-var_dump(buscaCaracter($listaMenu,"A")); 
-echo  "<br><br>";
-print_r($listaJuegosPokemon);
-var_dump(buscaCaracter($listaJuegosPokemon,"x"));
-
-function buscaCaracter($palabras, $letra) {
-    $letra = strtolower($letra);
-    echo "Buscando si está la letra $letra en la lista: ";
-    foreach($palabras as $palabra) {
-        $palabra = strtolower($palabra);
-        if(strpos($palabra, $letra) === false) {
-            return  $resultado = false;
+    $i = 0;
+    while($continuar && $i < count($listaPalabras)) {
+        if(stripos($listaPalabras[$i],$letra) === false) {
+            $resultado = false;
+            $continuar = false;
         }
+        $i++;
     }
-    return $resultado = true;
+
+    echo $resultado ? 'true' : 'false';
+    echo "<br>";
 }
 
+comprobarCaracter(["hola", "Php", "Html"], "h");
+comprobarCaracter(["hola", "Php", "Html"], "l");
 
 echo  "<br><br><hr>";
 
